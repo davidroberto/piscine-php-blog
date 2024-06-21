@@ -25,20 +25,20 @@ $articles = [
 	]
 ];
 
-
 // je créé une fonction nommée "isStringTooLong"
 // cette fonction prend en parametre la chaine de caractères à vérifier
 // nommée $stringToCheck
+// ainsi que la longueur max qu'on accepte, nommée $maxLength
 
 // cette fonction retourne un booléen : mb_strlen retourne un booléen
 // ce qui veut dire quand quand j'appelle cette fonction
 // je récupère un booléen
-function isStringTooLong($stringToCheck) {
-	return mb_strlen($stringToCheck, 'UTF-8') > 20;
+function isStringTooLong($stringToCheck, $maxLength) {
+	return mb_strlen($stringToCheck, 'UTF-8') > $maxLength;
 }
 
-function shortenString($stringToCut) {
-	return substr($stringToCut, 0, 20);
+function shortenString($stringToShorten, $length) {
+	return substr($stringToShorten, 0, $length);
 }
 
 
@@ -57,10 +57,13 @@ echo "<body>";
 					echo "<img src=".$article["img"]." />";
 
 
-					if (isStringTooLong($article['content'])) {
-						echo "<p>" . shortenString($article['content']) . "...</p>";
+					// check si la chaine de caractères est trop longue
+					if (isStringTooLong($article["content"], 20)) {
+						// raccourcie la chaine de caractère à 20 max
+						echo "<p>" . shortenString($article["content"], 20) . "...</p>";
 					} else {
 						echo "<p>" . $article["content"] . "</p>";
+
 					}
 
 				echo "</article>";
