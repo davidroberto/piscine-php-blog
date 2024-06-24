@@ -3,9 +3,9 @@
 <?php require_once('../partials/header.php'); ?>
 
 <main>
-	<form>
+	<form method="post">
 		<label>Nom
-			<input type="text" name="name" />
+			<input type="text" name="lastname" />
 		</label>
 
 
@@ -19,6 +19,42 @@
 
 		<input type="submit">
 	</form>
+
+
+	<?php 
+
+
+		function checkIfFormIsValid($request) {
+			if ( 
+				!empty($request['lastname']) && 
+				!empty($request['email']) && 
+				!empty($request['message']) &&
+		
+				preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/", $request['email'])
+		
+			 ) {
+				return true;
+			 } else {
+				return false;
+			 }
+		}
+
+	?>
+	
+
+	<?php if (isset($_REQUEST['lastname'])) { ?>
+
+		<?php if (checkIfFormIsValid($_REQUEST)) { ?>
+
+			<p>Merci <?php echo $_REQUEST['lastname'] ?> de votre message. Notre équipe répondra dans les plus brefs délais</p>
+
+		<?php } else { ?>
+
+			<p>Les données ne sont pas bonnes</p>
+
+		<?php } ?> 
+
+	<?php } ?> 
 
 </main>
 
