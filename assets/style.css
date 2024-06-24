@@ -1,0 +1,11 @@
+body {
+  background-color: lightblue;
+}
+
+.aside {
+  position: fixed;
+  right: 0;
+  height: 100%;
+  background-color: lightcoral;
+  top: 0;
+}
