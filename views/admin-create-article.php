@@ -42,9 +42,18 @@ pour accéder au fichier est "POST"
     $content = $_POST['content'];
 	$image = $_POST['image'];
 
+	$handle = fopen("../articles.txt", 'a');
+
+	$article = "Le titre est : " .$title. ", le contenu est : " .$content." et l'image est : ".$image;
+
+    if ($handle) {
+        fwrite($handle, $article);
+        fclose($handle);
+    } 
+
 ?>
 
-	<p><?php echo $title; ?></p>
+
 
 <?php } ?>
 
