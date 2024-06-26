@@ -1,5 +1,7 @@
 <?php 
 
+require_once('../config/errorConfig.php');
+
 $categories = [
     [
         'id' => 1,

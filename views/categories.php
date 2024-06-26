@@ -1,6 +1,7 @@
 <?php require_once("../controller/categoriesController.php"); ?>
 
 <?php require_once('../partials/header.php'); ?>
+
  
 <main>
 	<section>
