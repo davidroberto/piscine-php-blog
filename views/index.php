@@ -1,5 +1,4 @@
-<?php require_once('../config/errorConfig.php'); ?>
-<?php require_once('./indexControleur.php'); ?>
+<?php require_once('../controller/indexController.php'); ?>
 
 <?php require_once('../partials/header.php'); ?>
 

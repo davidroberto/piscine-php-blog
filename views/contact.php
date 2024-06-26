@@ -1,4 +1,4 @@
-<?php require_once('../config/errorConfig.php'); ?>
+<?php require_once('../controller/contactController.php'); ?>
 
 <?php require_once('../partials/header.php'); ?>
 
@@ -18,29 +18,7 @@
 		</label>
 
 		<input type="submit">
-	</form>
-
-
-	<?php 
-
-
-		function checkIfFormIsValid($request) {
-			if ( 
-				!empty($request['lastname']) && 
-				!empty($request['email']) && 
-				!empty($request['message']) &&
-		
-				preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/", $request['email'])
-		
-			 ) {
-				return true;
-			 } else {
-				return false;
-			 }
-		}
-
-	?>
-	
+	</form>	
 
 	<?php if (isset($_REQUEST['lastname'])) { ?>
 

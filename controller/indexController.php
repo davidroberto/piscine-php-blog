@@ -1,5 +1,8 @@
 <?php 
 
+
+require_once('../config/errorConfig.php');
+
 $articles = [
 	[
 		'title' => 'Article 1',
