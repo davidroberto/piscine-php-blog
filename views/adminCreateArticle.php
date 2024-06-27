@@ -30,7 +30,20 @@
 
 <?php if (isRequestPost()) { ?>
 
-	<p>L'article a bien été enregistré</p>
+	<?php if (empty(getFormErrors())) { ?>
+
+		<p>L'article a bien été enregistré</p>
+
+	<?php } else { ?>
+
+		<?php foreach(getFormErrors() as $error) { ?>
+
+			<p><?php echo $error; ?></p>
+
+		<?php }  ?>
+
+	<?php } ?>
+
 
 <?php } ?>
 
