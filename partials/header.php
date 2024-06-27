@@ -13,8 +13,13 @@
 
 	<nav>
 		<ul>
-			<li>Home</li>
-			<li>Blog</li>
+			<li><a href="http://localhost:8888/piscine-php-tp-blog/views/index.php">Home</a></li>
+			<li><a href="http://localhost:8888/piscine-php-tp-blog/views/article.php">Article</a></li>
+			<li><a href="http://localhost:8888/piscine-php-tp-blog/views/categories.php">Catégories</a></li>
+			<li><a href="http://localhost:8888/piscine-php-tp-blog/views/reviews.php">Reviews</a></li>
+			<li><a href="http://localhost:8888/piscine-php-tp-blog/views/contact.php">Contact</a></li>
+			<li><a href="http://localhost:8888/piscine-php-tp-blog/views/products.php">Produits</a></li>
+
 		</ul>
 	</nav>
 
