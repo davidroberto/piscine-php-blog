@@ -6,22 +6,37 @@
 
 <form>
 
-		<label >Categorie : </label>
-		<select name="category">
-			<option value="electro-menager">Electro-menager</option>
-			<option value="informatique">Informatique</option>
-			<option value="sport">Sport</option>
-		</select>
+	<label >Categorie : </label>
+	<select name="category">
 
-		<label>Prix minimum : </label>
-		<input type="number" name="minPrice" />
+		<?php foreach($productCategories as $category) { ?>
+			<option value="">Nope</option>
+			<option value="<?php echo $category; ?>"><?php echo $category; ?></option>
+		<?php } ?>
 
-		<label>Prix maximum : </label>
-		<input type="number" name="maxPrice" />
+	</select>
 
-		<button type="submit">Filtrer</button>
+	<label>Prix minimum : </label>
+	<input type="number" name="minPrice" min="<?php echo $productMinPrice; ?>" max="<?php echo $productMaxPrice; ?>"/>
+
+	<label>Prix maximum : </label>
+	<input type="number" name="maxPrice" min="<?php echo $productMinPrice; ?>" max="<?php echo $productMaxPrice; ?>" />
+
+
+	<label >Trier par : </label>
+	<select name="sort">
+
+		<option value="">Par défaut</option>
+		<option value="price">Prix</option>
+
+	</select>
+
+	<button type="submit">Filtrer</button>
 
 </form>
+
+
+
 
 
 <h2>Acheter un produit : </h2>
