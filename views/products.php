@@ -4,6 +4,25 @@
 
 <main>
 
+<form>
+
+		<label >Categorie : </label>
+		<select name="category">
+			<option value="electro-menager">Electro-menager</option>
+			<option value="informatique">Informatique</option>
+			<option value="sport">Sport</option>
+		</select>
+
+		<label>Prix minimum : </label>
+		<input type="number" name="minPrice" />
+
+		<label>Prix maximum : </label>
+		<input type="number" name="maxPrice" />
+
+		<button type="submit">Filtrer</button>
+
+</form>
+
 
 <h2>Acheter un produit : </h2>
 

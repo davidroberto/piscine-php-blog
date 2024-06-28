@@ -79,18 +79,22 @@ $products = [
 
 
 
-if (!empty($_GET)) {
-	// filtrer les produits, pour récupérer que ceux qui ont la catégorie de l'url
-
-	// j'utilise array filter qui permet de faire une boucle sur tous les produits
-	// et de ne récupérer que ceux qui valident ma fonction de callback
+if (!empty($_GET['category'])) {
 	$products = array_filter($products, function($product) {
-		// pour chaque tour de boucle (pour chaque produit)
-		// je regarde si la catégorie du produit est la même
-		// que celle dans l'url (le parametre GET)
 		return $product['category'] === $_GET['category'];
 	});
+}
 
+if (!empty($_GET['minPrice'])) {
+	$products = array_filter($products, function($product) {
+		return $product['price'] >= $_GET['minPrice'];
+	});
+}
+
+if (!empty($_GET['maxPrice'])) {
+	$products = array_filter($products, function($product) {
+		return $product['price'] <= $_GET['maxPrice'];
+	});
 }
 
 
