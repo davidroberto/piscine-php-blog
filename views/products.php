@@ -8,13 +8,12 @@
 
 	<label >Categorie : </label>
 	<select name="category">
-
+	<option value="">Nope</option>
 		<?php foreach($productCategories as $category) { ?>
-			<option value="">Nope</option>
 			<option value="<?php echo $category; ?>"><?php echo $category; ?></option>
 		<?php } ?>
 
-	</select>
+	</select> 
 
 	<label>Prix minimum : </label>
 	<input type="number" name="minPrice" min="<?php echo $productMinPrice; ?>" max="<?php echo $productMaxPrice; ?>"/>
@@ -36,7 +35,7 @@
 </form>
 
 
-
+<a href="http://localhost:8888/piscine-php-tp-blog/views/products.php?">Reset</a>
 
 
 <h2>Acheter un produit : </h2>

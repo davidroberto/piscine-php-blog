@@ -80,26 +80,6 @@ $products = [
 	]
 ];
 
-
-if (!empty($_GET['category'])) {
-	$products = array_filter($products, function($product) {
-		return $product['category'] === $_GET['category'];
-	});
-}
-
-if (!empty($_GET['minPrice'])) {
-	$products = array_filter($products, function($product) {
-		return $product['price'] >= (float)$_GET['minPrice'];
-	});
-}
-
-if (!empty($_GET['maxPrice'])) {
-	$products = array_filter($products, function($product) {
-		return $product['price'] <= (float)$_GET['maxPrice'];
-	});
-}
-
-
 $productCategories = [];
 
 foreach($products as $product) {
@@ -128,13 +108,28 @@ foreach($products as $product) {
 }
 
 
-// si j'ai un parametre GET "sort" et qu'il est égal à "price"
+if (!empty($_GET['category'])) {
+	$products = array_filter($products, function($product) {
+		return $product['category'] === $_GET['category'];
+	});
+
+}
+
+
+if (!empty($_GET['minPrice'])) {
+	$products = array_filter($products, function($product) {
+		return $product['price'] >= (float)$_GET['minPrice'];
+	});
+}
+
+if (!empty($_GET['maxPrice'])) {
+	$products = array_filter($products, function($product) {
+		return $product['price'] <= (float)$_GET['maxPrice'];
+	});
+}
+
 if (isset($_GET['sort']) && $_GET['sort'] === 'price') {
 
-	// alors j'utilise la fonction PHP usort qui permet de trier un tableau
-	// je trie en fonction du prix
-	// usort ne retourne pas de nouveau tableau, mais modifie le tableau
-	// original ($products)
 	usort($products, function ($a, $b) {
 		return $a['price'] <=> $b['price'];
 	});
