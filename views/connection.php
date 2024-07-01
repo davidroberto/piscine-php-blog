@@ -1,3 +1,5 @@
+<?php require_once('../controller/connectionController.php') ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,16 +27,9 @@
 <?php if ($_SERVER["REQUEST_METHOD"] === "POST") { ?>
 
     <?php if ($_POST['username'] === 'david' && $_POST['password'] === 'test') { ?>
-
-        <p>Vous êtes bien connecté</p>
-
-        <?php 
         
-            session_start();
-            
-            $_SESSION['username'] = $_POST['username'];
-
-        ?>
+        <?php logUser(); ?>
+        <?php redirectToAdmin(); ?>
 
     <?php } else { ?>
 
