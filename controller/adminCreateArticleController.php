@@ -8,12 +8,12 @@ require_once('../config/errorConfig.php');
 // pour accéder au fichier est "POST"
 
 
-session_start();
+// session_start();
 
 
-if ($_SESSION['username'] !== "david") {
-	header("Location: http://localhost:8888/piscine-php-tp-blog/views/connection.php");
-}
+// if ($_SESSION['username'] !== "david") {
+// 	header("Location: http://localhost:8888/piscine-php-tp-blog/views/connection.php");
+// }
 
 function isRequestPost() {
 	return $_SERVER["REQUEST_METHOD"] === "POST";
@@ -66,11 +66,12 @@ function getFormErrors() {
     $title = $_POST['title'];
     $content = $_POST['content'];
 	$image = $_POST['image'];
+	$createdAt = new DateTime();
 
 	$handle = fopen("../articles.txt", 'a');
 
 	
-	$article = "Le titre est : " .$title. ", le contenu est : " .$content." et l'image est : ".$image;
+	$article = "Le titre est : " .$title. ", le contenu est : " .$content." et l'image est : ".$image . "à ". $createdAt->format('d/m/Y');
 
     if ($handle) {
         fwrite($handle, $article);

@@ -27,6 +27,7 @@
 
 		<option value="">Par défaut</option>
 		<option value="price">Prix</option>
+		<option value="date">Date</option>
 
 	</select>
 
@@ -51,6 +52,15 @@
 			<p>Prix : <?php echo $product['price']; ?>e</p>
 			<p><?php echo $product['description']; ?> </p>
 			<p>Categorie : <?php echo $product['category']; ?> </p>
+
+			<!-- j'utilise la classe Datetime avec le mot clé "new" et je lui passe ?
+			 en parametre ma date en chaine de caractères. Datetime créé une "vraie" date
+			 que l'on va pouvoir manipuler : afficher uniquement le mois, ou l'année, avec 
+			 le format que l'on veut. On peut aussi comparer deux dates (connaitre la plus récente etc)
+			 ou encore ajouter x secondes ou x mois à une date.
+			 -->
+			<?php $createdAtDateTime = new DateTime($product['createdAt']); ?>
+			<p>Date de création : <?php echo $createdAtDateTime->format("d-m-Y"); ?></p>
 
 		</article>
 
