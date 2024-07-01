@@ -25,7 +25,16 @@
 <?php if ($_SERVER["REQUEST_METHOD"] === "POST") { ?>
 
     <?php if ($_POST['username'] === 'david' && $_POST['password'] === 'test') { ?>
+
         <p>Vous êtes bien connecté</p>
+
+        <?php 
+        
+            session_start();
+            
+            $_SESSION['username'] = $_POST['username'];
+
+        ?>
 
     <?php } else { ?>
 

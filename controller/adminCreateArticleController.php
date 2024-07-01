@@ -8,12 +8,12 @@ require_once('../config/errorConfig.php');
 // pour accéder au fichier est "POST"
 
 
-// session_start();
+session_start();
 
-
-// if ($_SESSION['username'] !== "david") {
-// 	header("Location: http://localhost:8888/piscine-php-tp-blog/views/connection.php");
-// }
+if ($_SESSION['username'] !== "david") {
+	// fait une redirection vers la page
+	header("Location: http://localhost:8888/piscine-php-tp-blog/views/connection.php");
+}
 
 function isRequestPost() {
 	return $_SERVER["REQUEST_METHOD"] === "POST";
