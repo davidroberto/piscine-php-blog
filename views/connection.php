@@ -5,7 +5,7 @@
     <title>Connexion</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" >
         <div>
             <label for="username">Nom d'utilisateur:</label>
             <input type="text" id="username" name="username" required>
@@ -22,18 +22,16 @@
 </html>
 
 
-<?php
+<?php if ($_SERVER["REQUEST_METHOD"] === "POST") { ?>
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['username'] === 'david' && $_POST['password'] === 'test') {
-	session_start();
+    <?php if ($_POST['username'] === 'david' && $_POST['password'] === 'test') { ?>
+        <p>Vous êtes bien connecté</p>
 
-	$_SESSION['username'] = $_POST['username'];
-?>
+    <?php } else { ?>
 
-<p>Vous êtes bien connecté</p>
+        <p>Mauvais identifiants</p>
+            
+    <?php } ?>
 
-<?php } else { ?>
-
-<p>Mauvais identifiants</p>
-	
 <?php } ?>
+
