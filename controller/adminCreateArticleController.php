@@ -70,7 +70,6 @@ function getFormErrors() {
 
 	$handle = fopen("../articles.txt", 'a');
 
-	
 	$article = "Le titre est : " .$title. ", le contenu est : " .$content." et l'image est : ".$image . "à ". $createdAt->format('d/m/Y');
 
     if ($handle) {
