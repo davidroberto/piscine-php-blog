@@ -1,6 +1,6 @@
 <?php 
 
-require_once('../config/errorConfig.php');
+require_once('../config/config.php');
 
 $categories = [
     [

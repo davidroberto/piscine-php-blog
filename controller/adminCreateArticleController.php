@@ -1,6 +1,6 @@
 <?php
 
-require_once('../config/errorConfig.php');
+require_once('../config/config.php');
 
 //La super globale $_SERVER permet de récupérer les données de la requête 
 //(et des infos) sur le serveur.
